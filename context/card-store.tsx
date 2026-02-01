@@ -30,19 +30,23 @@ type CardStoreState = {
 
 const STORAGE_KEY = "cardus-store";
 
+const defaultState: CardStoreState = {
+  favoriteCard: null,
+  savedCardsByCollection: {},
+};
+
 function loadState(): CardStoreState {
-  if (typeof window === "undefined")
-    return { favoriteCard: null, savedCardsByCollection: {} };
+  if (typeof window === "undefined") return defaultState;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { favoriteCard: null, savedCardsByCollection: {} };
+    if (!raw) return defaultState;
     const parsed = JSON.parse(raw) as CardStoreState;
     return {
       favoriteCard: parsed.favoriteCard ?? null,
       savedCardsByCollection: parsed.savedCardsByCollection ?? {},
     };
   } catch {
-    return { favoriteCard: null, savedCardsByCollection: {} };
+    return defaultState;
   }
 }
 
@@ -63,11 +67,22 @@ type CardStoreContextValue = CardStoreState & {
 const CardStoreContext = createContext<CardStoreContextValue | null>(null);
 
 export function CardStoreProvider({ children }: { children: React.ReactNode }) {
-  const [state, setState] = useState<CardStoreState>(loadState);
+  const [state, setState] = useState<CardStoreState>(defaultState);
+  const [isHydrated, setIsHydrated] = useState(false);
 
+  // Load state from localStorage after hydration
   useEffect(() => {
-    saveState(state);
-  }, [state]);
+    const loaded = loadState();
+    setState(loaded);
+    setIsHydrated(true);
+  }, []);
+
+  // Only save state after hydration to avoid overwriting with defaults
+  useEffect(() => {
+    if (isHydrated) {
+      saveState(state);
+    }
+  }, [state, isHydrated]);
 
   const setFavoriteCard = useCallback((card: SavedCard | null) => {
     setState((prev) => ({ ...prev, favoriteCard: card }));
