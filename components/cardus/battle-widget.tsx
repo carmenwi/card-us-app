@@ -15,7 +15,7 @@ const BATTLE = {
   cardA: {
     photo: "/mock-images/card-photos/gymgirl.png",
     rarity: "rare" as const,
-    username: "@marcus",
+    username: "@carmen",
     score: "2.4k",
     title: "Gym NPC",
     description: "Bro really thought the pump would fix the vibe. Aura: mid.",
@@ -35,7 +35,7 @@ const BATTLE = {
   comments: [
     { id: "1", username: "@neon_rider", text: "Cat card supremacy fr", time: "2m" },
     { id: "2", username: "@luna_vibes", text: "Boosted Sophia, no cap", time: "5m" },
-    { id: "3", username: "@sunset_queen", text: "Marcus needs a better angle 😂", time: "8m" },
+    { id: "3", username: "@sunset_queen", text: "Carmen looking strong 💪", time: "8m" },
   ],
 };
 
