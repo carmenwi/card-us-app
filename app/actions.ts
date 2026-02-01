@@ -168,13 +168,13 @@ Fighter 1: "${cardA.title}" (Description: "${cardA.description}", Stats: ${JSON.
 Fighter 2: "${cardB.title}" (Description: "${cardB.description}", Stats: ${JSON.stringify(cardB.stats)})
 
 **TASK:**
-Analyze the match-up. Who wins based on "Aura" and "Vibe"?
+Analyze the match-up. Who wins based on "Aura" and "Vibe"? Short and witty commentary.
 (Example: A "Gym Bro" card might have high strength, but a "Sleeping Cat" card has infinite Aura and wins by doing nothing).
 
 **OUTPUT JSON ONLY (no markdown, no \`\`\`):**
 {
   "winner": "1" or "2",
-  "commentary": "A short, witty, high-energy shoutcaster comment (max 2 sentences) IN ENGLISH. Roast the loser slightly and hype the winner. Use internet humor (e.g., 'Bro thought he could win...', 'Coughing baby vs Hydrogen Bomb energy', 'Emotional damage'). NO CRINGE SLANG.",
+  "commentary": "A short, witty, high-energy shoutcaster comment (max 1 sentence) IN ENGLISH. Roast the loser slightly and hype the winner. Use internet humor (e.g., 'Bro thought he could win...', 'Emotional damage'). NO CRINGE SLANG.",
   "critical_hit": true or false
 }
 `;
