@@ -42,8 +42,6 @@ Run the dev server:
 
 Then open http://localhost:3000.
 
-ON WEB: http://v0-cardus.vercel.app
-
 ## Scripts
 
 - `dev` — start the development server
