@@ -28,6 +28,8 @@ A Next.js 16 + React 19 app using the App Router, Tailwind CSS, and Radix UI com
 
 ## Getting Started
 
+- To run on local:
+
 Install dependencies:
 
 - pnpm: `pnpm install`
@@ -39,6 +41,8 @@ Run the dev server:
 - npm: `npm run dev`
 
 Then open http://localhost:3000.
+
+ON WEB: v0-cardus.vercel.app
 
 ## Scripts
 
