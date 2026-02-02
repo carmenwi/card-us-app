@@ -42,7 +42,7 @@ Run the dev server:
 
 Then open http://localhost:3000.
 
-ON WEB: v0-cardus.vercel.app
+ON WEB: http://v0-cardus.vercel.app
 
 ## Scripts
 
